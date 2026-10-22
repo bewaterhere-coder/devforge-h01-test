@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "kind": "devforge_plan_review_receipt",
+  "task_id": "TASK-WHOLE-PLAN-DIRECT-BRIDGE-001",
+  "project_id": "devforge-h01-test",
+  "review_target": "plan",
+  "plan_revision": 1,
+  "decision": "changes_requested",
+  "result": "Rejected",
+  "reviewed_at": "2026-10-22T06:45:46Z",
+  "bindings": {
+    "task_ref": "docs/tasks/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001.md",
+    "task_blob_before_transition": "736629455eddd395f9f4dbc42dd7da232264213b",
+    "task_sha256_before_transition": "674c252108635bac605a4821d1abc615c024140342b41228f9efb7a802a15399",
+    "plan_ref": "docs/plans/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan.md",
+    "plan_blob": "e0dedb6ce6f816b68c84ddfedeae7dc08b10465d",
+    "plan_sha256": "352339e5721cb5e3ba500e58bd8cdeeee02e94e4fb2d0d04c11810156dcceb7e",
+    "devforge_main": "af5ef1f4589e8020adf38d5af177e5d09a537773",
+    "candidate_pr": 221,
+    "candidate_head": "975362bb0573d313654b7a6ecbc004d4e402f8b3",
+    "accepted_definition_id": "EVO-CHATGPT-WHOLE-PLAN-LINUX-BRIDGE-EXECUTION-BINDING-V1-001",
+    "accepted_definition_revision": 2,
+    "accepted_definition_sha256": "946c9470bc5214e55df5650421042964e67af15ede2b38de7f27f9e9a2c41577"
+  },
+  "summary": "Plan Revision 1 is not approved. It has not yet established a reproducible test of the registered development.execute path, and its proposed behavior contract and authorization preconditions are insufficiently specified for a reliable product-level result.",
+  "findings": [
+    {
+      "id": "PBR-001",
+      "severity": "blocking",
+      "classification": "plan_local",
+      "area": "behavior_contract_and_test_oracle",
+      "finding": "The Plan proposes a status-normalization helper but does not define the helper's exact input/output contract, accepted status values, normalization mapping, or behavior for empty/unknown values. Without that oracle, a passing focused test cannot prove a deterministic intended behavior.",
+      "required_correction": "Define a minimal explicit status-normalization contract and table-driven expected cases in the Plan before implementation; include valid values, normalization, empty input, unknown input, and the expected error/default behavior. Keep scope confined to the isolated test repository."
+    },
+    {
+      "id": "PBR-002",
+      "severity": "blocking",
+      "classification": "plan_local",
+      "area": "formal_runtime_route_validation",
+      "finding": "The steps confirm the candidate route declaration and then call Bridge tools directly, but never exercise or otherwise verifiably dispatch the registered development.execute path against the exact PR #221 candidate. Direct tool success alone does not prove the formal Whole-Plan route selected the candidate adapter or that command results drove continuation.",
+      "required_correction": "Specify an observable formal route-validation step that binds the exact candidate runtime HEAD, records the actual selected route and Bridge tool invocation/result lineage, and distinguishes candidate-runtime execution from the current DevForge main route. If the current Host cannot dispatch the candidate through an existing authorized mechanism, record that as a blocked validation boundary rather than claim the registered route was tested. Do not add a new execution framework or modify DevForge main."
+    },
+    {
+      "id": "PBR-003",
+      "severity": "blocking",
+      "classification": "plan_local",
+      "area": "execution_authorization_precondition",
+      "finding": "The Task is currently legacy_command_scoped with no durable authorization reference, while the Plan requires a separate valid execution authorization without identifying the existing authorized issuance/readback path or explaining how the exact Task/Plan/file scope is checked. Silent migration to durable mode is forbidden.",
+      "required_correction": "Align the precondition with the Task's existing authorization mode and name the current registered command/path that will establish and independently read back any authorization required for the later execution. Do not issue or broaden authorization as part of Plan remediation."
+    }
+  ],
+  "preserved_boundaries": [
+    "Plan approval remains false; no implementation starts.",
+    "No durable authorization is issued, broadened, or silently upgraded.",
+    "No Task, Plan, Issue, PR, Run, or evidence store is replaced.",
+    "Manager PR #15, its Task, Plan, Gate, branch and historical Run remain untouched.",
+    "No merge, release, deployment, or Feature Acceptance approval."
+  ],
+  "next_command": "#开发计划修复 TASK-WHOLE-PLAN-DIRECT-BRIDGE-001"
+}
