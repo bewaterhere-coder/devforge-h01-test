@@ -69,13 +69,13 @@ requirement:
     unresolved_material_decisions: []
     readiness_decision: ready_for_planning
 development:
-  stage: plan_review
+  stage: plan_review_rejected
   gates:
     requirement_ready: true
     plan_approved: false
     acceptance_approved: false
     completion_verified: false
-  next_expected_actor: reviewer
+  next_expected_actor: planner
   authorization:
     mode: legacy_command_scoped
 artifacts:
