@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kind": "devforge_artifact_state_transition_receipt",
+  "task_id": "TASK-WHOLE-PLAN-DIRECT-BRIDGE-001",
+  "from_stage": "plan_review_rejected",
+  "to_stage": "plan_review",
+  "transition_rule": "revised_plan_verified",
+  "source_command": "#开发计划修复",
+  "evidence_refs": [
+    "revised_plan",
+    "plan_readback"
+  ],
+  "task_before_digest": "fbdb34dd35c65422771fc45aaa6a251f2a9c9e1f459db75170a6b6fdaac90f58",
+  "task_after_digest": "674c252108635bac605a4821d1abc615c024140342b41228f9efb7a802a15399",
+  "semantic_after_state_digest": "aa65a2ecf21b67717e9e0925be88d3eb89a2a1d55d88f5537bca1da169d843e5",
+  "verified": true
+}
