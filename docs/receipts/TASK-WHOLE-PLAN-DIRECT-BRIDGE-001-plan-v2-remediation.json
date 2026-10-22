@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "kind": "devforge_plan_remediation_receipt",
+  "task_id": "TASK-WHOLE-PLAN-DIRECT-BRIDGE-001",
+  "project_id": "devforge-h01-test",
+  "command": "#开发计划修复",
+  "status": "PlanRevisionPersisted",
+  "recorded_at": "2026-10-22T07:03:16Z",
+  "bindings": {
+    "repository": "bewaterhere-coder/devforge-h01-test",
+    "transport": {
+      "type": "local_file",
+      "repository": "bewaterhere-coder/devforge-h01-test",
+      "branch": "main"
+    },
+    "task_ref": "docs/tasks/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001.md",
+    "task_git_blob_before_transition": "ee5804c54c16609fb229c906bea6afcdf88ef0f4",
+    "task_sha256_before_transition": "fbdb34dd35c65422771fc45aaa6a251f2a9c9e1f459db75170a6b6fdaac90f58",
+    "requirement_revision": 1,
+    "requirement_canonical_json_sha256": "de5a2791c45c787b05799de54aac92ae1ab8d322cb51b0d2ef06f55e90a41991",
+    "plan_ref": "docs/plans/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan.md",
+    "plan_revision_before": 1,
+    "plan_blob_before": "e0dedb6ce6f816b68c84ddfedeae7dc08b10465d",
+    "plan_sha256_before": "352339e5721cb5e3ba500e58bd8cdeeee02e94e4fb2d0d04c11810156dcceb7e",
+    "plan_revision_after": 2,
+    "plan_blob_after": "7f35d31ad674368e5d9f9f2659ef9f7b2f2b15e3",
+    "plan_sha256_after": "00c574df61a1aec722e6362b122d66239620f3cf34f2ad26d77b6ddccbc6651c",
+    "plan_write_commit": "5baf33fee3649d265200f881f7bba7e6db02f8e6",
+    "plan_remote_readback_verified": true,
+    "rejected_review_ref": "docs/reviews/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v1-review.json",
+    "rejected_review_blob": "c0e00bb005a493aeb02d22d592675d970b077b1f",
+    "rejected_review_sha256": "5f3cda759461f9ebb77fc062b12e0422d7ee34bc7ed9ffbde69cbd3404640346",
+    "devforge_main": "af5ef1f4589e8020adf38d5af177e5d09a537773",
+    "candidate_runtime_pr": 221,
+    "candidate_runtime_head": "975362bb0573d313654b7a6ecbc004d4e402f8b3",
+    "candidate_runtime_state": "open_draft_unmerged",
+    "manager_pr15_head_read_only_baseline": "9cb9f08424195374a7ed9aeae39e1ac4bbac49c8"
+  },
+  "finding_remediation": [
+    {
+      "finding_id": "PBR-001",
+      "classification": "plan_local",
+      "addressed_in_plan_revision": 2,
+      "sections": [
+        "Remediation of PBR-001 — Deterministic Status Contract and Test Oracle",
+        "Execution Steps / Step 3 — Whole-Plan implementation and verification"
+      ],
+      "correction": "Defines normalize_status(value: str) -> str, the canonical status set, trim/lowercase normalization, TypeError/ValueError behavior, and eight explicit table-driven expected cases."
+    },
+    {
+      "finding_id": "PBR-002",
+      "classification": "plan_local",
+      "addressed_in_plan_revision": 2,
+      "sections": [
+        "Remediation of PBR-002 — Candidate Runtime Route Validation / Pinned route identity",
+        "Remediation of PBR-002 — Candidate Runtime Route Validation / Observable live-route proof"
+      ],
+      "correction": "Pins PR #221 candidate HEAD separately from current DevForge main, specifies the route/adapter resolution sources and required actual invocation/result lineage, and defines a fail-closed stop before product mutation if an existing authorized Host mechanism cannot select and evidence the candidate route. This receipt does not claim that route has been executed."
+    },
+    {
+      "finding_id": "PBR-003",
+      "classification": "plan_local",
+      "addressed_in_plan_revision": 2,
+      "sections": [
+        "Remediation of PBR-003 — Authorization and Write-Scope Separation"
+      ],
+      "correction": "Preserves legacy_command_scoped during remediation, names the registered #开发/development.task issuer and durable-development-authorization contract for any later required issuance/readback, and separates Task authorization from Host write-scope admission. No authorization was issued or changed."
+    }
+  ],
+  "preserved_invariants": {
+    "task_identity_unchanged": true,
+    "requirement_revision_unchanged": true,
+    "requirement_semantics_unchanged": true,
+    "requirement_digest_unchanged": true,
+    "transport_identity_unchanged": true,
+    "execution_shape_unchanged": true,
+    "plan_approved": false,
+    "implementation_started": false,
+    "authorization_issued": false,
+    "authorization_mode_changed": false,
+    "authorization_scope_expanded": false,
+    "new_task_created": false,
+    "new_requirement_created": false,
+    "new_pr_created": false,
+    "devforge_runtime_modified": false,
+    "manager_pr15_modified": false,
+    "acceptance_approved": false,
+    "merge_release_deployment_performed": false
+  },
+  "task_transition": {
+    "status": "pending_separate_B01_transition",
+    "expected_from_stage": "plan_review_rejected",
+    "expected_to_stage": "plan_review",
+    "expected_next_actor": "reviewer",
+    "transition_receipt_ref": "docs/receipts/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-remediation-transition.json",
+    "transition_verified": false
+  },
+  "review_boundary": {
+    "independent_plan_review_required": true,
+    "remediation_is_not_approval": true,
+    "findings_are_addressed_in_plan_not_deemed_approved": true,
+    "expected_next_command_after_verified_transition": "#开发评审 TASK-WHOLE-PLAN-DIRECT-BRIDGE-001"
+  }
+}
