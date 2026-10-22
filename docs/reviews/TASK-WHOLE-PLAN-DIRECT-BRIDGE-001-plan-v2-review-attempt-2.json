@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "kind": "devforge_plan_review_receipt",
+  "task_id": "TASK-WHOLE-PLAN-DIRECT-BRIDGE-001",
+  "project_id": "devforge-h01-test",
+  "review_target": "plan",
+  "plan_revision": 2,
+  "decision": "approved",
+  "result": "Approved",
+  "reviewed_at": "2026-10-22T08:31:58Z",
+  "review_lineage": {
+    "reviewer_role": "orchestration_side_plan_reviewer",
+    "reviewer_lineage_id": "plan-review-v2-reassessment-20261022T083158Z",
+    "remediator_role": "planner_remediator",
+    "remediator_lineage_id": "plan-remediation-v2:6e65c75f63c63a49a7719f1918eaa26c1f898f81",
+    "distinct_role_and_evidence_lineages": true,
+    "same_provider_model_permitted_by_current_contract": true,
+    "prior_invalidated_review_reused": false
+  },
+  "bindings": {
+    "repository": "bewaterhere-coder/devforge-h01-test",
+    "transport": {
+      "type": "local_file",
+      "repository": "bewaterhere-coder/devforge-h01-test",
+      "branch": "main"
+    },
+    "test_repository_head_before_review": "b68c64b4b08cdff86fe8b5bf4f35f73825f7753b",
+    "task_ref": "docs/tasks/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001.md",
+    "task_blob_before_transition": "736629455eddd395f9f4dbc42dd7da232264213b",
+    "task_sha256_before_transition": "674c252108635bac605a4821d1abc615c024140342b41228f9efb7a802a15399",
+    "requirement_revision": 1,
+    "requirement_canonical_json_sha256": "de5a2791c45c787b05799de54aac92ae1ab8d322cb51b0d2ef06f55e90a41991",
+    "plan_ref": "docs/plans/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan.md",
+    "plan_blob": "7f35d31ad674368e5d9f9f2659ef9f7b2f2b15e3",
+    "plan_sha256": "00c574df61a1aec722e6362b122d66239620f3cf34f2ad26d77b6ddccbc6651c",
+    "review_v1_ref": "docs/reviews/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v1-review.json",
+    "review_v1_blob": "c0e00bb005a493aeb02d22d592675d970b077b1f",
+    "review_v1_sha256": "5f3cda759461f9ebb77fc062b12e0422d7ee34bc7ed9ffbde69cbd3404640346",
+    "remediation_receipt_ref": "docs/receipts/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v2-remediation.json",
+    "remediation_receipt_blob": "6e65c75f63c63a49a7719f1918eaa26c1f898f81",
+    "remediation_receipt_sha256": "a2d24392d941edc438d30dc7ef94ff1039b2c91da31b967c39648d4869adec47",
+    "remediation_transition_receipt_ref": "docs/receipts/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-remediation-transition.json",
+    "remediation_transition_receipt_blob": "5e5178a9a60561ae7f4b200c1b21e52ff67cfb72",
+    "remediation_transition_receipt_sha256": "487dcee57d3b33e34b2c4fd21833634111f65b991e666d82479103564d0fe5f2",
+    "correction_receipt_ref": "docs/receipts/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-review-authority-correction.json",
+    "correction_receipt_blob": "b701f5abc8e0b917487349bbc555608fea73e12b",
+    "invalidated_review_ref": "docs/reviews/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v2-review.json",
+    "invalidated_review_blob": "3fa4a6bd623d73d832ece617e5a0db8e2ac78591",
+    "invalidated_review_sha256": "e58014c675617505bec4bd0a244a21b9063418b8c6086f86c9ebc39acbcf1db5",
+    "invalidated_transition_ref": "docs/receipts/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v2-approved-transition.json",
+    "invalidated_transition_blob": "7b1fb7e9854ded1f6b938e6dc32cb068bda00454",
+    "invalidated_transition_sha256": "de103ba70197084e800c87fd3064275d7557b65360294bedbabb2f3f4e56cb9e",
+    "devforge_main": "af5ef1f4589e8020adf38d5af177e5d09a537773",
+    "candidate_pr": 221,
+    "candidate_head": "975362bb0573d313654b7a6ecbc004d4e402f8b3",
+    "candidate_pr_state": "open_draft_unmerged",
+    "accepted_definition_id": "EVO-CHATGPT-WHOLE-PLAN-LINUX-BRIDGE-EXECUTION-BINDING-V1-001",
+    "accepted_definition_revision": 2,
+    "accepted_definition_sha256": "946c9470bc5214e55df5650421042964e67af15ede2b38de7f27f9e9a2c41577",
+    "manager_pr15_head_read_only_baseline": "9cb9f08424195374a7ed9aeae39e1ac4bbac49c8",
+    "execution_evidence_ref": "devforge/execution-evidence",
+    "execution_evidence_ref_present": false
+  },
+  "summary": "Plan Revision 2 is approved for a bounded verification attempt. Fresh review confirms PBR-001 defines a deterministic status contract and eight expected cases; PBR-002 pins candidate PR #221 separately from current main, requires actual selected-route and Bridge-result lineage, and fails closed before product mutation if the candidate route cannot be selected; PBR-003 separates the registered #开发/development.task authorization issuer from Host write-scope admission. This approval does not claim a live candidate route invocation, does not issue execution authorization, and does not start implementation. The absent devforge/execution-evidence ref and candidate route selection must be resolved through existing registered mechanisms before dependent product work.",
+  "reviewed_prior_findings": [
+    {
+      "id": "PBR-001",
+      "result": "addressed",
+      "review": "The exact normalize_status(value: str) -> str contract, accepted values, trim/lowercase normalization, TypeError/ValueError boundaries, and eight table-driven cases are explicit. The helper is confined to the isolated fixture and does not invent a production-wide status contract."
+    },
+    {
+      "id": "PBR-002",
+      "result": "addressed_with_fail_closed_boundary",
+      "review": "The plan pins PR #221 HEAD separately from current main, names all four existing route registry/adapter sources, requires actual selected-route and Bridge-result lineage, and forbids static declarations or direct-tool success as route proof. If no authorized selector exists, product mutation stops. This is a valid bounded verification outcome, not a false claim that the route was tested."
+    },
+    {
+      "id": "PBR-003",
+      "result": "addressed",
+      "review": "The plan preserves legacy_command_scoped during remediation, identifies #开发/development.task as the registered issuer for any later exact-task authorization, and separately requires Host write-scope admission. It neither issues nor broadens authorization."
+    }
+  ],
+  "findings": [],
+  "route_validation_boundary": {
+    "candidate_route": "chatgpt_direct_bridge_tool_loop",
+    "candidate_adapter": "adapters/development/chatgpt-local-engineering-host.md",
+    "candidate_runtime_router_blob": "4cd3d111969b98c5db47fcce582bea9d869c7b7b",
+    "candidate_capability_registry_blob": "20ba37e92969600aea1d060ee67035fcf0adcf9e",
+    "candidate_command_registry_blob": "00475cd0517e7431dee542a4bffb8adbee16e822",
+    "candidate_adapter_blob": "97c26a5c277a06adedfec5d48f6267091cb676f5",
+    "current_main_route": "tools/whole_plan_host_artifact_store.py::execute_registered_whole_plan",
+    "candidate_route_live_invocation_verified": false,
+    "required_before_product_mutation": "Prove the existing authorized Host mechanism selected exact candidate Runtime HEAD and bind actual Bridge tool results; otherwise stop at the unavailable route boundary."
+  },
+  "preserved_boundaries": [
+    "Approval does not start implementation or authorize product-code mutation.",
+    "No Durable Development Authorization was issued, broadened, or migrated.",
+    "No canonical Run, Checkpoint, Window Close, Verification, or Finalization evidence was created or inferred.",
+    "Manager PR #15 remains at read-back HEAD 9cb9f08424195374a7ed9aeae39e1ac4bbac49c8.",
+    "DevForge Runtime main remains unchanged.",
+    "No Acceptance approval, merge, release, or deployment."
+  ],
+  "next_command": "#开发 TASK-WHOLE-PLAN-DIRECT-BRIDGE-001"
+}
