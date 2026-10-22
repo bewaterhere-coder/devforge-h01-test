@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "kind": "devforge_review_authority_correction_receipt",
+  "task_id": "TASK-WHOLE-PLAN-DIRECT-BRIDGE-001",
+  "project_id": "devforge-h01-test",
+  "status": "approval_voided_for_gate_use",
+  "recorded_at": "2026-10-22T07:28:43Z",
+  "reason": "The invoking review instruction explicitly prohibited self-approval. The assistant that authored the Plan Revision 2 remediation also created the Plan Revision 2 approval receipt and applied the plan_review -> implementation transition. That approval must not be treated as valid gate evidence. This receipt corrects that unauthorized gate mutation; it does not reject the Plan content or approve the Plan.",
+  "invalidated_for_gate_use": {
+    "review_receipt_ref": "docs/reviews/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v2-review.json",
+    "review_receipt_blob": "3fa4a6bd623d73d832ece617e5a0db8e2ac78591",
+    "review_receipt_sha256": "e58014c675617505bec4bd0a244a21b9063418b8c6086f86c9ebc39acbcf1db5",
+    "transition_receipt_ref": "docs/receipts/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan-v2-approved-transition.json",
+    "transition_receipt_blob": "7b1fb7e9854ded1f6b938e6dc32cb068bda00454",
+    "transition_receipt_sha256": "de103ba70197084e800c87fd3064275d7557b65360294bedbabb2f3f4e56cb9e",
+    "review_commit": "067c374e15abf8473ff48977ba68fd516b6a7cd4",
+    "task_transition_commit": "1432fdc6fb29a55e4139d75f309b100827d47299",
+    "transition_receipt_commit": "4710b7f00b8edcc25429d7a4c6a0c59a6a3298bc"
+  },
+  "bindings": {
+    "task_ref": "docs/tasks/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001.md",
+    "task_blob_before_correction": "b2dc158a4c55aea39701891318fd67372bfcae3d",
+    "task_sha256_before_correction": "ad04d6360811e4071f2bd2264e2f0251fda82a31171894d3df8b249707540960",
+    "plan_ref": "docs/plans/TASK-WHOLE-PLAN-DIRECT-BRIDGE-001-plan.md",
+    "plan_blob": "7f35d31ad674368e5d9f9f2659ef9f7b2f2b15e3",
+    "plan_sha256": "00c574df61a1aec722e6362b122d66239620f3cf34f2ad26d77b6ddccbc6651c",
+    "requirement_revision": 1,
+    "requirement_canonical_json_sha256": "de5a2791c45c787b05799de54aac92ae1ab8d322cb51b0d2ef06f55e90a41991",
+    "transport": {
+      "type": "local_file",
+      "repository": "bewaterhere-coder/devforge-h01-test",
+      "branch": "main"
+    }
+  },
+  "corrected_gate_state": {
+    "stage": "plan_review",
+    "plan_approved": false,
+    "next_expected_actor": "reviewer",
+    "authorization_mode": "legacy_command_scoped",
+    "durable_authorization_ref_present": false
+  },
+  "preserved_boundaries": {
+    "requirement_semantics_changed": false,
+    "implementation_started": false,
+    "product_files_changed": false,
+    "durable_authorization_issued_or_expanded": false,
+    "devforge_runtime_modified": false,
+    "manager_pr15_modified": false,
+    "acceptance_approved": false,
+    "merge_release_or_deployment_performed": false
+  },
+  "next_action": "Obtain a valid independent Plan Review decision for Plan Revision 2. Do not use the invalidated approval or transition receipts as gate evidence. If no separate reviewer is available in this invocation, leave the Task in plan_review with plan_approved=false."
+}
